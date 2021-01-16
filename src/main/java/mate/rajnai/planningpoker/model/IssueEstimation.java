@@ -2,6 +2,7 @@ package mate.rajnai.planningpoker.model;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -30,5 +31,6 @@ public class IssueEstimation {
     @MapsId("issueId")
     private Issue issue;
 
+    @Setter
     private int estimation;
 }
