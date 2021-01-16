@@ -23,4 +23,10 @@ public class IssueService {
                 .map(IssueEstimation::getIssue)
                 .collect(Collectors.toList());
     }
+
+    public void estimateIssue(String userId, String issueId, String estimation) {
+        IssueEstimation issueEstimation = this.issueEstimations.findIssueEstimationByUserIdAndIssueId(Long.valueOf(userId), Long.valueOf(issueId)).orElseThrow(NullPointerException::new);
+        issueEstimation.setEstimation(Integer.parseInt(estimation));
+        this.issueEstimations.save(issueEstimation);
+    }
 }
