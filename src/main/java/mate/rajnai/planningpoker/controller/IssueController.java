@@ -29,6 +29,12 @@ public class IssueController {
         return "issues-of-user";
     }
 
+    @GetMapping("/{issueId}/estimation")
+    public String estimateIssue(@PathVariable String userId, @PathVariable String issueId, @RequestParam("value") String estimation, Model model) {
+        this.issueService.estimateIssue(userId, issueId, estimation);
+        log.info("Estimation: " + estimation);
+        return "redirect:/api/users/".concat(userId).concat("/issues");
+    }
 
 
 }
