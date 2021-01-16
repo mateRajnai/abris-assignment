@@ -18,7 +18,9 @@ public class IssueService {
 
     public List<Issue> getIssuesOfUser(String userId) {
         List<IssueEstimation> issueEstimations = this.issueEstimations.findIssueEstimationByUserId(Long.valueOf(userId));
-        List<Issue> issuesOfUser = issueEstimations.stream().map(IssueEstimation::getIssue).collect(Collectors.toList());
-        return issuesOfUser;
+        return issueEstimations
+                .stream()
+                .map(IssueEstimation::getIssue)
+                .collect(Collectors.toList());
     }
 }
