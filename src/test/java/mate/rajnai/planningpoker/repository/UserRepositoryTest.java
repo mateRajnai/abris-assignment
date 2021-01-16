@@ -5,11 +5,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @ActiveProfiles("test")
 class UserRepositoryTest {
 
@@ -33,6 +35,11 @@ class UserRepositoryTest {
         assertThat(foundUser.getName()).isEqualTo("Test user");
     }
 
+    @Test
+    public void notFindUserById() {
+        User foundUser = this.users.findById(2L).orElse(null);
+        assertThat(foundUser).isNull();
+    }
 
 
 }
