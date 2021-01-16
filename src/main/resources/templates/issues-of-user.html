@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>User's issues</title>
 </head>
 <body>
-
+<div>
+    <tr th:each="issue : ${issuesOfUser}">
+        <td th:text="${issue.id}">Name...</td>
+        <td th:text="${issue.title}">Type ...</a></td>
+        <td th:text="${issue.description}">Date ...</td>
+    </tr>
+</div>
 </body>
 </html>
