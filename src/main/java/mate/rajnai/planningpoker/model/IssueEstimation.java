@@ -22,6 +22,7 @@ public class IssueEstimation {
     @EmbeddedId
     private IssueEstimationKey id;
 
+    @Getter
     @ManyToOne
     @MapsId("userId")
     private User user;
@@ -32,5 +33,6 @@ public class IssueEstimation {
     private Issue issue;
 
     @Setter
+    @Getter
     private int estimation;
 }
