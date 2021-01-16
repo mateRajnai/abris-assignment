@@ -11,11 +11,11 @@ import java.util.Set;
 
 @Entity
 @Builder
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Issue {
 
-    @Getter
     @Id
     @GeneratedValue
     private Long id;
