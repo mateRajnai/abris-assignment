@@ -32,16 +32,13 @@ class IssueServiceIntegrationTest {
 
     private IssueService issueService;
 
-    private User user1;
     private Issue issue1;
     private Issue issue2;
-    private IssueEstimation issueEstimation1;
-    private IssueEstimation issueEstimation2;
 
     @BeforeEach
     public void initData() {
         issueService = new IssueService(issueEstimationRepository);
-        user1 = User.builder()
+        User user1 = User.builder()
                 .name("User 1")
                 .build();
         issue1 = Issue.builder()
@@ -52,8 +49,8 @@ class IssueServiceIntegrationTest {
                 .title("Issue 2")
                 .description("description 2")
                 .build();
-        issueEstimation1 = new IssueEstimation(user1, issue1);
-        issueEstimation2 = new IssueEstimation(user1, issue2);
+        IssueEstimation issueEstimation1 = new IssueEstimation(user1, issue1);
+        IssueEstimation issueEstimation2 = new IssueEstimation(user1, issue2);
         this.users.save(user1);
         this.issues.save(issue1);
         this.issues.save(issue2);

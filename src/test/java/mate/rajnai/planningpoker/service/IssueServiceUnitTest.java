@@ -1,7 +1,7 @@
 package mate.rajnai.planningpoker.service;
-
 import mate.rajnai.planningpoker.model.Issue;
 import mate.rajnai.planningpoker.model.IssueEstimation;
+
 import mate.rajnai.planningpoker.model.User;
 import mate.rajnai.planningpoker.repository.IssueEstimationRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -29,7 +29,6 @@ class IssueServiceUnitTest {
     @InjectMocks
     private IssueService issueService;
 
-    private User user1;
     private Issue issue1;
     private Issue issue2;
     private IssueEstimation issueEstimation1;
@@ -37,7 +36,7 @@ class IssueServiceUnitTest {
 
     @BeforeEach
     public void initData() {
-        user1 = User.builder()
+        User user1 = User.builder()
                 .name("User 1")
                 .build();
         issue1 = Issue.builder()
