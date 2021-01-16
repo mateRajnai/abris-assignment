@@ -2,12 +2,14 @@ package mate.rajnai.planningpoker.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -16,6 +18,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Issue {
 
+    @Getter
     @Id
     @GeneratedValue
     private Long id;
@@ -25,7 +28,7 @@ public class Issue {
     private String description;
 
     @OneToMany(mappedBy = "issue")
-    private Set<IssueEstimation> estimations;
+    private Set<IssueEstimation> estimations = new HashSet<>();
 
     private int averageEstimation;
 }

@@ -2,6 +2,7 @@ package mate.rajnai.planningpoker.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.Set;
 @Table(name = "`user`")
 public class User {
 
+    @Getter
     @Id
     @GeneratedValue
     private Long id;
