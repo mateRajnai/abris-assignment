@@ -1,6 +1,7 @@
 package mate.rajnai.planningpoker;
 
 import lombok.RequiredArgsConstructor;
+import mate.rajnai.planningpoker.repository.IssueRepository;
 import mate.rajnai.planningpoker.repository.UserRepository;
 import org.springframework.stereotype.Component;
 
