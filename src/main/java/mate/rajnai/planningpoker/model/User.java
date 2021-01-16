@@ -23,5 +23,6 @@ public class User {
 
     private Set<Issue> issues = new HashSet<>();
 
+    @OneToMany(mappedBy = "user")
     private Set<IssueEstimation> estimations = new HashSet<>();
 }
