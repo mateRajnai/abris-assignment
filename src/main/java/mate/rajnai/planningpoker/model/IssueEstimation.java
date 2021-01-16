@@ -1,5 +1,6 @@
 package mate.rajnai.planningpoker.model;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.EmbeddedId;
@@ -24,6 +25,7 @@ public class IssueEstimation {
     @MapsId("userId")
     private User user;
 
+    @Getter
     @ManyToOne
     @MapsId("issueId")
     private Issue issue;
