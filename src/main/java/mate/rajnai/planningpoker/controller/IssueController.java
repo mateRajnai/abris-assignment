@@ -2,7 +2,7 @@ package mate.rajnai.planningpoker.controller;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import mate.rajnai.planningpoker.model.Issue;
+import mate.rajnai.planningpoker.model.IssueEstimation;
 import mate.rajnai.planningpoker.service.IssueService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +24,7 @@ public class IssueController {
 
     @GetMapping
     public String getIssuesOfUser(@PathVariable String userId, Model model) {
-        List<Issue> issuesOfUser = this.issueService.getIssuesOfUser(userId);
+        List<IssueEstimation> issuesOfUser = this.issueService.getIssuesOfUser(userId);
         model.addAttribute("issuesOfUser", issuesOfUser);
         return "issues-of-user";
     }
