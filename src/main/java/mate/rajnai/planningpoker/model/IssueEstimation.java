@@ -1,5 +1,6 @@
 package mate.rajnai.planningpoker.model;
 
+import lombok.NoArgsConstructor;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -10,7 +11,7 @@ import javax.persistence.MapsId;
 public class IssueEstimation {
 
     @EmbeddedId
-    private IssueEstimationKey issueEstimationKey;
+    private IssueEstimationKey id;
 
     @ManyToOne
     @MapsId("userId")
