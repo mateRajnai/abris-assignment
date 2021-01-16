@@ -66,7 +66,6 @@ public class DataInitializer {
         IssueEstimation issueEstimation9 = new IssueEstimation(user3, issue1);
         IssueEstimation issueEstimation10 = new IssueEstimation(user3, issue2);
         IssueEstimation issueEstimation11 = new IssueEstimation(user3, issue3);
-        IssueEstimation issueEstimation12 = new IssueEstimation(user3, issue4);
 
 
         this.issueEstimations.save(issueEstimation1);
@@ -80,6 +79,5 @@ public class DataInitializer {
         this.issueEstimations.save(issueEstimation9);
         this.issueEstimations.save(issueEstimation10);
         this.issueEstimations.save(issueEstimation11);
-        this.issueEstimations.save(issueEstimation12);
     }
 }
