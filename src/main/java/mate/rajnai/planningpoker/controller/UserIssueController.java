@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/api/users/{userId}/issues")
-public class IssueController {
+public class UserIssueController {
 
 
     private final IssueService issueService;
