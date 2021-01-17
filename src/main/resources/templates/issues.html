@@ -12,7 +12,7 @@
         <div class="card-body">
             <h5 class="card-title" th:text="${issue.title}">Title</h5>
             <p class="card-text" th:text="${issue.description}">Description</p>
-            <p th:text="${issue.averageEstimation} != 0 ? ${issue.averageEstimation} : ''">Average estimation</p>
+            <p th:text="${issue.averageEstimation} != 0 ? ${issue.averageEstimation} : 'Not yet estimated'">Average estimation</p>
     </div>
 </div>
 </body>
