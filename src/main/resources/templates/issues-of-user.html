@@ -11,7 +11,7 @@
         <td th:text="${issueEstimation.issue.title}">Type ...</a></td>
         <td th:text="${issueEstimation.issue.description}">Date ...</td>
         <td th:text="${issueEstimation.estimation}">Estimation ...</td>
-        <form id="myForm" th:action="@{/api/users/${issueEstimation.user.name}/issues/${issueEstimation.issue.id}/estimation}" method="get">
+        <form id="myForm" th:action="@{|/api/users/${issueEstimation.user.id}/issues/${issueEstimation.issue.id}/estimation|}" method="get">
             <input type="text" name="value" th:value="${value}" class="form-control" />
             <button type="submit" class="btn btn-success">Estimate</button>
         </form>
