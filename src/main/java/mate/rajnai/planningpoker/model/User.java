@@ -22,7 +22,7 @@ public class User {
     private String name;
 
     @OneToMany(mappedBy = "user")
-    private Set<IssueEstimation> estimations = new HashSet<>();
+    private final Set<IssueEstimation> estimations = new HashSet<>();
 
 
 }
