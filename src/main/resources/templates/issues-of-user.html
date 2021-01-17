@@ -15,13 +15,8 @@
                 <div class="estimation">
                     <div class="estimation-form" th:if="${issueEstimation.estimation == 0}">
                         <form id="myForm" th:action="@{|/api/users/${issueEstimation.user.id}/issues/${issueEstimation.issue.id}/estimation|}" method="get">
-                            <select th:name="value">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="5">5</option>
-                                <option value="8">8</option>
-                                <option value="13">13</option>
+                            <select th:name="value" >
+                                <option th:each="possibleEstimation: ${possibleEstimations}" th:value="${possibleEstimation}" th:text="${possibleEstimation}"></option>
                             </select>
                             <button type="submit" class="btn btn-success">Estimate</button>
                         </form>
