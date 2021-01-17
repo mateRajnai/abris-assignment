@@ -25,8 +25,7 @@ public class IssueService {
 
     public void estimateIssue(String userId, String issueId, String estimation) {
         IssueEstimation issueEstimation = this.issueEstimations.findIssueEstimationByUserIdAndIssueId(Long.valueOf(userId), Long.valueOf(issueId)).orElseThrow(NullPointerException::new);
-        int newEstimation = Integer.parseInt(estimation);
-        issueEstimation.setEstimation(newEstimation);
+        issueEstimation.setEstimation(Integer.parseInt(estimation));
         this.issueEstimations.save(issueEstimation);
 
         Issue issue = issueEstimation.getIssue();
