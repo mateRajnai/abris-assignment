@@ -27,8 +27,6 @@ class IssueServiceUnitTest {
     @InjectMocks
     private IssueService issueService;
 
-    private Issue issue1;
-    private Issue issue2;
     private IssueEstimation issueEstimation1;
     private IssueEstimation issueEstimation2;
 
@@ -37,11 +35,11 @@ class IssueServiceUnitTest {
         User user1 = User.builder()
                 .name("User 1")
                 .build();
-        issue1 = Issue.builder()
+        Issue issue1 = Issue.builder()
                 .title("Issue 1")
                 .description("description 1")
                 .build();
-        issue2 = Issue.builder()
+        Issue issue2 = Issue.builder()
                 .title("Issue 2")
                 .description("description 2")
                 .build();
@@ -53,7 +51,7 @@ class IssueServiceUnitTest {
     public void getIssuesOfUser() {
         Mockito.when(this.issueEstimationRepository.findIssueEstimationByUserId(1L))
                 .thenReturn(new ArrayList<>(Arrays.asList(issueEstimation1, issueEstimation2)));
-        assertThat(this.issueService.getIssuesOfUser("1")).isEqualTo(new ArrayList<>(Arrays.asList(issue1, issue2)));
+        assertThat(this.issueService.getIssueEstimationsOfUser("1")).isEqualTo(new ArrayList<>(Arrays.asList(issueEstimation1, issueEstimation2)));
     }
 
 }
