@@ -26,4 +26,8 @@ public class IssueStatistic {
         }
         return 0;
     }
+
+    public static int[] getPossibleEstimations() {
+        return POSSIBLE_ESTIMATIONS;
+    }
 }
