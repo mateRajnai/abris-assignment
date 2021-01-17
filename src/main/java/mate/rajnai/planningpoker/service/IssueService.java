@@ -19,7 +19,7 @@ public class IssueService {
     private final IssueRepository issueRepository;
 
 
-    public List<IssueEstimation> getIssuesOfUser(String userId) {
+    public List<IssueEstimation> getIssueEstimationsOfUser(String userId) {
         return this.issueEstimations.findIssueEstimationByUserId(Long.valueOf(userId));
     }
 
