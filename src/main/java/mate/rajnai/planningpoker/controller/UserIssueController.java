@@ -3,6 +3,7 @@ package mate.rajnai.planningpoker.controller;
 import lombok.RequiredArgsConstructor;
 import mate.rajnai.planningpoker.model.IssueEstimation;
 import mate.rajnai.planningpoker.service.IssueService;
+import mate.rajnai.planningpoker.util.IssueStatistic;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,6 +25,7 @@ public class UserIssueController {
     public String getIssueEstimationsOfUser(@PathVariable String userId, Model model) {
         List<IssueEstimation> issueEstimationsOfUser = this.issueService.getIssueEstimationsOfUser(userId);
         model.addAttribute("issueEstimationsOfUser", issueEstimationsOfUser);
+        model.addAttribute("possibleEstimations", IssueStatistic.getPossibleEstimations());
         return "issues-of-user";
     }
 
