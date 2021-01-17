@@ -25,6 +25,9 @@ class IssueServiceIntegrationTest {
     private IssueEstimationRepository issueEstimationRepository;
 
     @Autowired
+    private IssueRepository issueRepository;
+
+    @Autowired
     private UserRepository users;
 
     @Autowired
@@ -34,10 +37,12 @@ class IssueServiceIntegrationTest {
 
     private Issue issue1;
     private Issue issue2;
+    private IssueEstimation issueEstimation1;
+    private IssueEstimation issueEstimation2;
 
     @BeforeEach
     public void initData() {
-        issueService = new IssueService(issueEstimationRepository);
+        issueService = new IssueService(issueEstimationRepository, issueRepository);
         User user1 = User.builder()
                 .name("User 1")
                 .build();
@@ -49,19 +54,19 @@ class IssueServiceIntegrationTest {
                 .title("Issue 2")
                 .description("description 2")
                 .build();
-        IssueEstimation issueEstimation1 = new IssueEstimation(user1, issue1);
-        IssueEstimation issueEstimation2 = new IssueEstimation(user1, issue2);
+        issueEstimation1 = new IssueEstimation(user1, issue1);
+        issueEstimation2 = new IssueEstimation(user1, issue2);
         this.users.save(user1);
         this.issues.save(issue1);
         this.issues.save(issue2);
-        this.issueEstimationRepository.save(issueEstimation1);
-        this.issueEstimationRepository.save(issueEstimation2);
+        issueEstimation1 = this.issueEstimationRepository.save(issueEstimation1);
+        issueEstimation2 = this.issueEstimationRepository.save(issueEstimation2);
     }
 
     @Test
     public void getIssuesOfUser() {
-        System.out.println(this.issueService.getIssuesOfUser("1"));
-        assertThat(this.issueService.getIssuesOfUser("1")).isEqualTo(new ArrayList<>(Arrays.asList(issue1, issue2)));
+        System.out.println(this.issueService.getIssueEstimationsOfUser("1"));
+        assertThat(this.issueService.getIssueEstimationsOfUser("1")).isEqualTo(new ArrayList<>(Arrays.asList(issueEstimation1, issueEstimation2)));
     }
 
 }
