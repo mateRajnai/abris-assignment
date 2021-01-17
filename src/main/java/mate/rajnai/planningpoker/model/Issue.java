@@ -21,7 +21,7 @@ public class Issue {
 
     private String description;
 
-    @OneToMany(mappedBy = "issue")
+    @OneToMany(mappedBy = "issue", cascade = CascadeType.MERGE)
     private Set<IssueEstimation> estimations = new HashSet<>();
 
     @Setter
