@@ -5,6 +5,7 @@ import mate.rajnai.planningpoker.model.Issue;
 import mate.rajnai.planningpoker.model.IssueEstimation;
 import mate.rajnai.planningpoker.repository.IssueEstimationRepository;
 import mate.rajnai.planningpoker.repository.IssueRepository;
+import mate.rajnai.planningpoker.util.IssueStatistic;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,28 +31,8 @@ public class IssueService {
 
         Issue issue = issueEstimation.getIssue();
         Set<IssueEstimation> issueEstimations = issue.getEstimations();
-        issue.setAverageEstimation(this.getAverageOfFibonacciEstimations(issueEstimations));
+        issue.setAverageEstimation(IssueStatistic.getAverageOfFibonacciEstimations(issueEstimations));
         this.issueRepository.save(issue);
-    }
-
-    private int getAverageOfFibonacciEstimations(Set<IssueEstimation> issueEstimations) {
-        int[] possibleEstimations = new int[]{1, 2, 3, 5, 8, 13};
-        int sumOfEstimations = issueEstimations
-                .stream()
-                .map(IssueEstimation::getEstimation)
-                .mapToInt(Integer::intValue)
-                .sum();
-        int numberOfEstimations = Math.toIntExact(issueEstimations.stream().filter(issueEstimation -> issueEstimation.getEstimation() != 0).count());
-        int normalAverage = sumOfEstimations / numberOfEstimations;
-        for (int i = 0; i < possibleEstimations.length - 1; i++) {
-            if (possibleEstimations[i] == normalAverage) return possibleEstimations[i];
-            if (possibleEstimations[i+1] == normalAverage) return possibleEstimations[i+1];
-            if (possibleEstimations[i] < normalAverage && normalAverage < possibleEstimations[i+1])
-                return possibleEstimations[i] - normalAverage >= possibleEstimations[i + 1] - normalAverage
-                        ? possibleEstimations[i + 1]
-                        : possibleEstimations[i];
-        }
-        return 0;
     }
 
     public List<Issue> getAllIssues() {
