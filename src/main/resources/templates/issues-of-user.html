@@ -12,7 +12,11 @@
         <td th:text="${issueEstimation.issue.description}">Date ...</td>
         <td th:text="${issueEstimation.estimation}">Estimation ...</td>
         <form id="myForm" th:action="@{|/api/users/${issueEstimation.user.id}/issues/${issueEstimation.issue.id}/estimation|}" method="get">
-            <input type="text" name="value" class="form-control" />
+            <select th:name="value">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
             <button type="submit" class="btn btn-success">Estimate</button>
         </form>
     </tr>
