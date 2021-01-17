@@ -22,8 +22,8 @@ public class UserIssueController {
 
     @GetMapping
     public String getIssueEstimationsOfUser(@PathVariable String userId, Model model) {
-        List<IssueEstimation> issuesOfUser = this.issueService.getIssueEstimationsOfUser(userId);
-        model.addAttribute("issuesOfUser", issuesOfUser);
+        List<IssueEstimation> issueEstimationsOfUser = this.issueService.getIssueEstimationsOfUser(userId);
+        model.addAttribute("issueEstimationsOfUser", issueEstimationsOfUser);
         return "issues-of-user";
     }
 
