@@ -10,18 +10,24 @@
         <td th:text="${issueEstimation.issue.id}">Name...</td>
         <td th:text="${issueEstimation.issue.title}">Type ...</a></td>
         <td th:text="${issueEstimation.issue.description}">Date ...</td>
-        <td th:text="${issueEstimation.estimation}">Estimation ...</td>
-        <form id="myForm" th:action="@{|/api/users/${issueEstimation.user.id}/issues/${issueEstimation.issue.id}/estimation|}" method="get">
-            <select th:name="value">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="8">8</option>
-                <option value="13">13</option>
-            </select>
-            <button type="submit" class="btn btn-success">Estimate</button>
-        </form>
+        <div class="estimation">
+            <div class="estimation-form" th:if="${issueEstimation.estimation == 0}">
+                <form id="myForm" th:action="@{|/api/users/${issueEstimation.user.id}/issues/${issueEstimation.issue.id}/estimation|}" method="get">
+                    <select th:name="value">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="8">8</option>
+                        <option value="13">13</option>
+                    </select>
+                    <button type="submit" class="btn btn-success">Estimate</button>
+                </form>
+            </div>
+            <div class="estimation-value" th:unless="${issueEstimation.estimation != 0}">
+                <td th:text="${issueEstimation.estimation}">Estimation ...</td>
+            </div>
+        </div>
     </tr>
 </div>
 
