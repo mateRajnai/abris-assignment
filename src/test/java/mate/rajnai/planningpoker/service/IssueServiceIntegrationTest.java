@@ -35,8 +35,6 @@ class IssueServiceIntegrationTest {
 
     private IssueService issueService;
 
-    private Issue issue1;
-    private Issue issue2;
     private IssueEstimation issueEstimation1;
     private IssueEstimation issueEstimation2;
 
@@ -46,11 +44,11 @@ class IssueServiceIntegrationTest {
         User user1 = User.builder()
                 .name("User 1")
                 .build();
-        issue1 = Issue.builder()
+        Issue issue1 = Issue.builder()
                 .title("Issue 1")
                 .description("description 1")
                 .build();
-        issue2 = Issue.builder()
+        Issue issue2 = Issue.builder()
                 .title("Issue 2")
                 .description("description 2")
                 .build();
