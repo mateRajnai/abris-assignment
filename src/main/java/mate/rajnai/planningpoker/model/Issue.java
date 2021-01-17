@@ -1,9 +1,6 @@
 package mate.rajnai.planningpoker.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -27,5 +24,6 @@ public class Issue {
     @OneToMany(mappedBy = "issue")
     private Set<IssueEstimation> estimations = new HashSet<>();
 
+    @Setter
     private int averageEstimation;
 }
